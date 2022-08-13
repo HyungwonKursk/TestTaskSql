@@ -8,7 +8,7 @@ Id INT PRIMARY KEY,
 "Name" TEXT
 );
 
-CREATE TABLE ProductCategories (
+CREATE TABLE ProductsCategories (
 ProductId INT FOREIGN KEY REFERENCES Products(Id),
 CategoryId INT FOREIGN KEY REFERENCES Categories(Id),
 PRIMARY KEY (ProductId, CategoryId)
@@ -31,7 +31,7 @@ VALUES
 
 
 
-INSERT INTO ProductCategories
+INSERT INTO ProductsCategories
 VALUES
 (1, 3),
 (2, 3),
@@ -40,7 +40,7 @@ VALUES
 
 SELECT Products."Name", Categories."Name"
 FROM Products
-LEFT JOIN ProductCategories
-ON Products.Id = ProductCategories.ProductId
+LEFT JOIN ProductsCategories
+ON Products.Id = ProductsCategories.ProductId
 LEFT JOIN Categories Categories
-ON ProductCategories.CategoryId = Categories.Id;
+ON ProductsCategories.CategoryId = Categories.Id;
